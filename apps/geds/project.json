@@ -1,0 +1,99 @@
+{
+  "name": "geds",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/geds/src",
+  "prefix": "geds",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/geds",
+        "index": "apps/geds/src/index.html",
+        "main": "apps/geds/src/main.ts",
+        "polyfills": "apps/geds/src/polyfills.ts",
+        "tsConfig": "apps/geds/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/geds/src/favicon.ico", "apps/geds/src/assets"],
+        "styles": ["apps/geds/src/styles.scss",
+          {
+            "inject": false,
+            "input": "apps/geds/src/assets/styles/themes/dark.scss",
+            "bundleName": "dark-theme"
+          },
+          {
+            "inject": false,
+            "input": "apps/geds/src/assets/styles/themes/light.scss",
+            "bundleName": "light-theme"
+          }],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/geds/src/environments/environment.ts",
+              "with": "apps/geds/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "geds:build:production"
+        },
+        "development": {
+          "browserTarget": "geds:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "geds:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/geds/**/*.ts", "apps/geds/**/*.html"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/geds"],
+      "options": {
+        "jestConfig": "apps/geds/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
