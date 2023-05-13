@@ -126,6 +126,11 @@ export class DevAppLayout {
   ) {
     dir.change.subscribe(() => cdr.markForCheck());
     try {
+      const s = this._document.createElement('link');
+      s.rel = 'stylesheet';
+      s.href = 'light-theme.css';
+      const head: any = this._document.querySelector('head');
+      head.appendChild(s);
       const isDark = localStorage.getItem(isDarkThemeKey);
       if (isDark != null) {
         // We avoid calling the setter and apply the themes directly here.
@@ -136,12 +141,6 @@ export class DevAppLayout {
     } catch (error) {
       console.error(`Failed to read ${isDarkThemeKey} from localStorage: `, error);
     }
-
-    const s = this._document.createElement('link');
-    s.rel = 'stylesheet';
-    // s.href = 'light-theme.css';
-    const head: any = this._document.querySelector('head');
-    head.appendChild(s);
   }
 
   get isDark(): boolean {

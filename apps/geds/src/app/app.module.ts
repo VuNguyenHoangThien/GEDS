@@ -35,7 +35,7 @@ const ROUTER: Routes = [{
     MatListModule,
     MatSidenavModule,
     MatToolbarModule,
-    RouterModule.forRoot(ROUTER)],
+    RouterModule.forRoot(ROUTER, { useHash:true })],
   providers: [DevAppLayout,
     {provide: OverlayContainer, useClass: FullscreenOverlayContainer},
     {provide: MAT_RIPPLE_GLOBAL_OPTIONS, useExisting: DevAppRippleOptions},
