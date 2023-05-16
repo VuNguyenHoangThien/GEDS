@@ -16,7 +16,8 @@
         "tsConfig": "apps/geds/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": ["apps/geds/src/favicon.ico", "apps/geds/src/assets"],
-        "styles": ["apps/geds/src/styles.scss",
+        "styles": [
+          "apps/geds/src/styles.scss",
           {
             "inject": false,
             "input": "apps/geds/src/assets/styles/themes/dark.scss",
@@ -26,7 +27,8 @@
             "inject": false,
             "input": "apps/geds/src/assets/styles/themes/light.scss",
             "bundleName": "light-theme"
-          }],
+          }
+        ],
         "scripts": []
       },
       "configurations": {

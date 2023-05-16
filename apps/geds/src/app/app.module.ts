@@ -17,6 +17,8 @@ import {FullscreenOverlayContainer, OverlayContainer} from '@angular/cdk/overlay
 import {MAT_RIPPLE_GLOBAL_OPTIONS} from '@angular/material/core';
 import { DevAppRippleOptions } from './show-case/dev-app/ripple-options';
 import { DevAppDirectionality } from './show-case/dev-app/dev-app-directionality';
+import { GECardModule } from '@geds/card';
+import { MatCardModule } from '@angular/material/card';
 
 const ROUTER: Routes = [{
   path: '',
@@ -35,6 +37,7 @@ const ROUTER: Routes = [{
     MatListModule,
     MatSidenavModule,
     MatToolbarModule,
+    GECardModule,
     RouterModule.forRoot(ROUTER, { useHash:true })],
   providers: [DevAppLayout,
     {provide: OverlayContainer, useClass: FullscreenOverlayContainer},

@@ -15,13 +15,17 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@geds/card": ["libs/card/src/index.ts"],
+      "@angular/cdk-experimental": ["apps/geds/src/cdk-experimental"],
+      "@angular/cdk-experimental/*": ["apps/geds/src/cdk-experimental/*"],
       "@angular/components-examples": ["apps/geds/src/components-examples"],
       "@angular/components-examples/*": ["apps/geds/src/components-examples/*"],
-      "@angular/material-experimental/*": ["apps/geds/src/material-experimental/*"],
       "@angular/material-experimental": ["apps/geds/src/material-experimental"],
-      "@angular/cdk-experimental/*": ["apps/geds/src/cdk-experimental/*"],
-      "@angular/cdk-experimental": ["apps/geds/src/cdk-experimental"]
+      "@angular/material-experimental/*": [
+        "apps/geds/src/material-experimental/*"
+      ],
+      "@geds/card": ["libs/card/src/index.ts"],
+      "@geds/cdk": ["libs/cdk/src/index.ts"],
+      "@geds/core": ["libs/core/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
