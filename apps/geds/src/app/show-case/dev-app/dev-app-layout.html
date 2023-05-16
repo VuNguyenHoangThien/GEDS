@@ -47,20 +47,20 @@
           <button mat-button (click)="isDark = !isDark">
             {{isDark ? 'Light' : 'Dark'}} theme
           </button>
-          <button mat-button (click)="rippleOptions.disabled = !rippleOptions.disabled">
+          <!-- <button mat-button (click)="rippleOptions.disabled = !rippleOptions.disabled">
             {{rippleOptions.disabled ? 'Enable' : 'Disable'}} ripples
-          </button>
-          <button mat-button (click)="toggleStrongFocus()">
+          </button> -->
+          <!-- <button mat-button (click)="toggleStrongFocus()">
             {{strongFocus ? 'Disable strong focus' : 'Enable strong focus'}}
-          </button>
+          </button> -->
           <button mat-button (click)="dir.value = (dir.value === 'rtl' ? 'ltr' : 'rtl')"
                   title="Toggle between RTL and LTR">
             {{dir.value.toUpperCase()}}
           </button>
-          <button mat-button (click)="selectNextDensity()"
+          <!-- <button mat-button (click)="selectNextDensity()"
                   title="Use next density scale: {{densityScales[getNextDensityIndex()]}}">
             Density scale: {{densityScales[this.currentDensityIndex]}}
-          </button>
+          </button> -->
         </div>
       </div>
     </mat-toolbar>
